@@ -8,7 +8,13 @@
 </template>
 
 <script setup>
+import { useStoryApi } from "@storyblok/nuxt/composables";
+
 const route = useRoute();
-const slug = route.path === "/" ? "/home" : route.path;
-const { data } = await useStory(slug);
+const storyapi = useStoryApi();
+const slug =
+  route.path === "/" ? "cdn/stories/home" : "cdn/stories" + route.path;
+const { data } = await storyapi.get(slug, {
+  version: "draft",
+});
 </script>

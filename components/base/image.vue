@@ -41,7 +41,7 @@ const imageSrcset = computed(() =>
 );
 const isLoaded = ref(false);
 watch(imageSrcset, () => loadImage());
-if (props.isPriority) {
+/* if (props.isPriority) {
   useMeta({
     link: [
       {
@@ -53,7 +53,7 @@ if (props.isPriority) {
       },
     ],
   });
-}
+} */
 const { stop: stopIntersectionObserver } = useIntersectionObserver(
   image,
   ([{ isIntersecting }], observerElement) => {
@@ -113,18 +113,13 @@ function getTransformationPoints() {
     y: transformY,
   };
 }
-function generateImageUrl(image, options = "") {
-  const imageService = "https://img2.storyblok.com/";
-  const path = image.replace("https://a.storyblok.com", "");
-  return imageService + options + path;
-}
 function generateImageSrcset(imageUrl) {
   return sizes
     .map((width, index) => {
       const height = 0;
       const format = "webp";
-      const options = `${width}x${height}/filters:format(${format})`;
-      const url = generateImageUrl(imageUrl, options);
+      const options = `${width}x${height}`;
+      const url = imageUrl + "/m/" + options;
       return `${url} ${width}w`;
     })
     .join(", ");
@@ -139,7 +134,7 @@ function loadImage() {
 }
 </script>
 
-<style scoped >
+<style scoped>
 .portrait {
   @apply max-h-full w-auto max-w-none;
   height: inherit;

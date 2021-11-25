@@ -7,5 +7,5 @@ export default defineNuxtConfig({
       postcssOptions: require("./postcss.config.js"),
     },
   },
-  // modules: [["@storyblok/nuxt", { accessToken: "MXZNTlJYSnVfIwr28XMcxQtt" }]],
+  modules: [["@storyblok/nuxt", { accessToken: "MXZNTlJYSnVfIwr28XMcxQtt" }]],
 });
