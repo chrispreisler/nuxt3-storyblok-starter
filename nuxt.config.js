@@ -1,11 +1,13 @@
 import { defineNuxtConfig } from "nuxt3";
 
 export default defineNuxtConfig({
-  buildModules: ["@vueuse/core/nuxt"],
+  publicRuntimeConfig: {
+    storyblokToken: process.env.STORYBLOK_TOKEN,
+  },
+  buildModules: ["@vueuse/nuxt"],
   build: {
     postcss: {
       postcssOptions: require("./postcss.config.js"),
     },
   },
-  modules: [["@storyblok/nuxt", { accessToken: "MXZNTlJYSnVfIwr28XMcxQtt" }]],
 });
