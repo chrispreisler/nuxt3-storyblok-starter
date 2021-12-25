@@ -18,7 +18,8 @@
 <script setup>
 const route = useRoute();
 const slug = route.path === "/" ? "/home" : route.path;
-const { data } = await useStory(slug);
+const { data } = await useStoryApi(slug);
+useStoryBridge(data.value.story.id, (story) => (data.value.story = story));
 
 /*useMeta(() => ({
   // title: data.story.content.seo[0].title,

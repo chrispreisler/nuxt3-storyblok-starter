@@ -16,5 +16,5 @@
 <script setup>
 import "./assets/css/tailwind.css";
 
-const { data } = await useStory("/global");
+const { data } = await useStoryApi("/global");
 </script>
