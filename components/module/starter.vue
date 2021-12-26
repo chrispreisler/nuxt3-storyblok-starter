@@ -1,6 +1,6 @@
 <template>
   <div>
-    <base-headline level="1">{{ blok.title }}</base-headline>
+    <BaseHeadline>{{ blok.title }}</BaseHeadline>
     <div class="w-full h-screen overflow-hidden">
       <BaseImage :blok="blok.image" is-cover is-priority />
     </div>

@@ -1,13 +1,13 @@
 <template>
   <main>
     <div v-if="data">
-      <nuxt-link
-        v-for="(link, index) in data.story.content.header[0].navigation"
+      <BaseLink
+        v-for="(item, index) in data.story.content.header[0].navigation"
         :key="index"
-        :to="link.link.cached_url === 'home' ? '/' : link.link.cached_url"
+        :blok="item.link"
       >
-        {{ link.title }}
-      </nuxt-link>
+        {{ item.title }}
+      </BaseLink>
     </div>
     <NuxtPage />
   </main>

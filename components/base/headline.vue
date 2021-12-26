@@ -1,5 +1,5 @@
 <template>
-  <component :is="'h' + level" :class="className">
+  <component :is="'h' + level" :class="currentStyle">
     <slot />
   </component>
 </template>
@@ -12,14 +12,13 @@ const props = defineProps({
   },
   size: {
     type: String,
-    default: "normal",
+    default: "h1",
   },
 });
 
-const className = computed(() => {
-  switch (props.size) {
-    default:
-      return "text-h1";
-  }
-});
+const styles = {
+  h1: "text-h1",
+};
+
+const currentStyle = computed(() => styles[props.size]);
 </script>

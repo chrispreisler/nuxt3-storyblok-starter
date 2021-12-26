@@ -1,17 +1,27 @@
 <template>
   <div>
     <div v-if="data">
+      <Html v-if="data.story.content.seo.length">
+        <Head>
+          <Title>{{ data.story.content.seo[0].title }}</Title>
+          <Meta name="description" :content="data.story.content.seo[0].copy" />
+          <Meta name="og:title" :content="data.story.content.seo[0].title" />
+          <Meta name="og:type" content="website" />
+          <Meta
+            name="og:description"
+            :content="data.story.content.seo[0].copy"
+          />
+          <Meta
+            name="og:image"
+            :content="data.story.content.seo[0].image.filename"
+          />
+        </Head>
+      </Html>
       <component
         :is="'layout-' + data.story.content.component"
         :blok="data.story.content"
       />
     </div>
-    <!--<Head v-if="data.story.content.seo.length">
-      <Title v-if="data.story.content.seo[0].title">
-        {{ data.story.content.seo[0].title }}
-      </Title>
-      <Meta name="description" :content="data.story.content.seo[0].copy" />
-    </Head>-->
   </div>
 </template>
 
@@ -20,50 +30,4 @@ const route = useRoute();
 const slug = route.path === "/" ? "/home" : route.path;
 const { data } = await useStoryApi(slug);
 useStoryBridge(data.value.story.id, (story) => (data.value.story = story));
-
-/*useMeta(() => ({
-  // title: data.story.content.seo[0].title,
-  /* meta: [
-        {
-          hid: "description",
-          name: "description",
-          content: data.value.story?.content?.seo.copy,
-        },
-        {
-          hid: "og:title",
-          name: "og:title",
-          content: data.value.story?.content?.seo.value?.title,
-        },
-        {
-          hid: "og:type",
-          name: "og:type",
-          content: "website",
-        },
-        {
-          hid: "og:description",
-          name: "og:description",
-          content: data.value.story?.content?.seo.value?.copy,
-        },
-        {
-          hid: "og:image",
-          name: "og:image",
-          content: data.value.story?.content?.seo.value?.image?.filename,
-        },
-        {
-          hid: "twitter:title",
-          name: "twitter:title",
-          content: data.value.story?.content?.seo.value?.title,
-        },
-        {
-          hid: "twitter:description",
-          name: "twitter:description",
-          content: data.value.story?.content?.seo.value?.copy,
-        },
-        {
-          hid: "twitter:image",
-          name: "twitter:image",
-          content: data.value.story?.content?.seo.value?.image?.filename,
-        },
-      ], 
-}));*/
 </script>
