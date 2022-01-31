@@ -28,6 +28,6 @@
 <script setup>
 const route = useRoute();
 const slug = route.path === "/" ? "/home" : route.path;
-const { data } = await useStoryApi(slug);
-useStoryBridge(data.value.story.id, (story) => (data.value.story = story));
+const { data } = await useStoryblokApi(slug);
+useStoryblokBridge(data.value.story.id, (story) => (data.value.story = story));
 </script>

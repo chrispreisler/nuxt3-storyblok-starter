@@ -10,5 +10,5 @@ const props = defineProps({
   },
 });
 
-const { text } = useStoryTextResolver(props.blok);
+const { text } = useStoryblokTextResolver(props.blok);
 </script>

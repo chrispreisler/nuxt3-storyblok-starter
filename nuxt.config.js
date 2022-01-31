@@ -8,21 +8,34 @@ export const noopTransform = () => {
 };
 
 export default defineNuxtConfig({
-  publicRuntimeConfig: {
-    storyblokToken: process.env.STORYBLOK_TOKEN,
-    storyblokVersion: process.env.STORYBLOK_VERSION,
-  },
+  modules: [
+    [
+      "./modules/storyblok/module",
+      {
+        token: process.env.STORYBLOK_TOKEN,
+        version: process.env.STORYBLOK_VERSION,
+      },
+    ],
+  ],
   buildModules: ["@vueuse/nuxt"],
   build: {
     postcss: {
       postcssOptions: require("./postcss.config.js"),
     },
   },
-  hooks: {
+  /* hooks: {
     "build:before": ({ nuxt }, config) => {
       const opts = config.loaders.vue.compilerOptions;
       const transforms = opts.directiveTransforms || {};
       opts.directiveTransforms = { ...transforms, editable: noopTransform };
+    },
+  }, */
+  vite: {
+    server: {
+      hmr: {
+        protocol: "ws",
+        host: "localhost",
+      },
     },
   },
 });

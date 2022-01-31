@@ -1,4 +1,4 @@
-export const useStoryTextResolver = (data = {}) => {
+export const useStoryblokTextResolver = (data = {}) => {
   const nodes = {
     horizontal_rule(node) {
       return {

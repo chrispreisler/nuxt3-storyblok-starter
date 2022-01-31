@@ -1,4 +1,4 @@
-export const useStoryBridge = async (id, cb) => {
+export const useStoryblokBridge = async (id, cb) => {
   const router = useRouter();
   if (typeof window === "undefined") {
     return;

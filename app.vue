@@ -9,12 +9,11 @@
         {{ item.title }}
       </BaseLink>
     </div>
-    <NuxtPage />
+    <NuxtPage :key="$route.fullPath" />
   </main>
 </template>
 
 <script setup>
 import "./assets/css/tailwind.css";
-
-const { data } = await useStoryApi("/global");
+const { data } = await useStoryblokApi("/global");
 </script>
