@@ -1,7 +1,7 @@
 <template>
   <div>
     <div v-if="data">
-      <Html v-if="data.story.content.seo.length">
+      <Html v-if="data.story.content.seo.length" lang="de">
         <Head>
           <Title>{{ data.story.content.seo[0].title }}</Title>
           <Meta name="description" :content="data.story.content.seo[0].copy" />

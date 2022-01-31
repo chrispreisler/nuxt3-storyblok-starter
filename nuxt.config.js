@@ -23,13 +23,6 @@ export default defineNuxtConfig({
       postcssOptions: require("./postcss.config.js"),
     },
   },
-  /* hooks: {
-    "build:before": ({ nuxt }, config) => {
-      const opts = config.loaders.vue.compilerOptions;
-      const transforms = opts.directiveTransforms || {};
-      opts.directiveTransforms = { ...transforms, editable: noopTransform };
-    },
-  }, */
   vite: {
     server: {
       hmr: {
