@@ -8,7 +8,8 @@ export const noopTransform = () => {
 };
 
 export default defineNuxtConfig({
-  modules: [
+  buildModules: [
+    "@vueuse/nuxt",
     [
       "./modules/storyblok/module",
       {
@@ -17,7 +18,6 @@ export default defineNuxtConfig({
       },
     ],
   ],
-  buildModules: ["@vueuse/nuxt"],
   build: {
     postcss: {
       postcssOptions: require("./postcss.config.js"),
