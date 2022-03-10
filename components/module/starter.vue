@@ -1,15 +1,10 @@
 <template>
   <div v-editable="blok">
-    <BaseHeadline>{{ blok.title }}</BaseHeadline>
-    <BaseText :blok="blok.copy" />
-    <div class="w-full h-screen overflow-hidden">
-      <BaseImage
-        v-if="blok.image.filename"
-        :blok="blok.image"
-        is-cover
-        is-priority
-      />
-    </div>
+    <!--<BaseHeadline>{{ blok.title }}</BaseHeadline>
+    <BaseText :blok="blok.copy" />-->
+    <!--<div class="w-full h-screen overflow-hidden">-->
+    <BaseImageCover v-if="blok.image.filename" :blok="blok.image" />
+    <!--</div>-->
   </div>
 </template>
 

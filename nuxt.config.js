@@ -1,13 +1,10 @@
 import { defineNuxtConfig } from "nuxt3";
 
-export const noopTransform = () => {
-  return {
-    props: [],
-    needRuntime: true,
-  };
-};
-
 export default defineNuxtConfig({
+  components: {
+    global: true,
+    dirs: ["~/components"],
+  },
   buildModules: [
     "@vueuse/nuxt",
     [
@@ -30,5 +27,8 @@ export default defineNuxtConfig({
         host: "localhost",
       },
     },
+  },
+  meta: {
+    link: [{ rel: "preconnect", href: "//img2.storyblok.com" }],
   },
 });

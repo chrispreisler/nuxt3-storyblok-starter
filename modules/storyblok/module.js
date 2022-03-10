@@ -14,15 +14,6 @@ export default defineNuxtModule({
       dirs.push(resolve(__dirname, "./composables"));
     });
 
-    nuxt.hook("builed:before", ({ nuxt }, config) => {
-      const opts = config.loaders.vue.compilerOptions;
-      const transforms = opts.directiveTransforms || {};
-      opts.directiveTransforms = {
-        ...transforms,
-        editable: noopTransform,
-      };
-    });
-
-    addPlugin(resolve(__dirname, "./plugins/storyEditable.client.js"));
+    addPlugin(resolve(__dirname, "./plugins/storyEditable.js"));
   },
 });

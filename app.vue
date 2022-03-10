@@ -1,6 +1,6 @@
 <template>
   <main>
-    <div v-if="data">
+    <div v-if="data" class="absolute top-0 left-0 right-0">
       <BaseLink
         v-for="(item, index) in data.story.content.header[0].navigation"
         :key="index"
